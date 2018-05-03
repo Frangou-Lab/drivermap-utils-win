@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+  <Product
+    Id="*"
+    Name="DriverMap Utilites $(var.Platform) $(var.ProductVersion)"
+    Language="1033"
+    Version="$(var.ProductVersion)"
+    Manufacturer="Frangou Lab"
+    UpgradeCode="ee183b77-e4b9-4ea4-9451-126f2f0d5455">
+
+    <Package Id='*'
+             Platform="$(var.Platform)"
+             InstallerVersion="301"
+             Compressed="yes"
+             InstallScope="perMachine"
+             Comments='DriverMap Utilites is a trademark of Frangou Lab'
+             Description="DriverMap Utilites $(var.ProductVersion) Installer" />
+
+    <PropertyRef Id="NETFRAMEWORK45"/>
+
+    <Condition Message='Your operating system is not supported'>
+      VersionNT >= v6.0 OR VersionNT64 >= v6.0
+    </Condition>
+
+    <Condition Message="This application requires .NET Framework 4.5. Please install the .NET Framework then run this installer again.">
+      <![CDATA[Installed OR NETFRAMEWORK45]]>
+    </Condition>
+
+    <Media Id="1" Cabinet="DriverMap.cab" EmbedCab="yes" />
+
+    <MajorUpgrade
+      AllowDowngrades="no"
+      DowngradeErrorMessage="A newer version of DriverMap Utilites is already installed."
+      AllowSameVersionUpgrades="no"
+    />
+
+    <Icon
+      Id="DriverMap.exe"
+      SourceFile="$(var.BinPath)\DriverMap.exe" />
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ApplicationProgramsFolder" Name="DriverMap" />
+      </Directory>
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="Company" Name="Frangou Lab">
+          <Directory Id="APPLICATIONROOTDIRECTORY" Name="DriverMap" />
+        </Directory>
+      </Directory>
+      <Directory Id="DesktopFolder" Name="Desktop" />
+    </Directory>
+
+    <DirectoryRef Id="DesktopFolder">
+      <Component Id="ApplicationShortcutDesktop" Guid="2EF2AA8F-0F27-44B3-A82E-31B6F52A9D5F">
+        <Shortcut Id="ApplicationDesktopShortcut"
+            Name="DriverMap $(var.ProductVersion)"
+            Description="Launch DriverMap $(var.ProductVersion)"
+            Target="[APPLICATIONROOTDIRECTORY]DriverMap.exe"
+            WorkingDirectory="APPLICATIONROOTDIRECTORY" Icon="DriverMap.exe" />
+        <RemoveFolder Id="DesktopFolder" On="uninstall"/>
+        <RegistryValue
+            Root="HKCU"
+            Key="Software/Frangou Lab/DriverMap"
+            Name="installed"
+            Type="integer"
+            Value="1"
+            KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="TARGETDIR">
+      <Merge
+          Id="VCRedist" DiskId="1" Language="0"
+          SourceFile="Runtime\Microsoft_VC140_CRT_$(var.Platform).msm"/>
+    </DirectoryRef>
+    
+    <DirectoryRef Id="ApplicationProgramsFolder">
+      <Component Id="ApplicationProgramsMenuShortcut" Guid="5496B4FE-7E2A-45E1-AD26-55A99099C600">
+        <Shortcut Id="ProgramsMenuShortcut"
+            Name="DriverMap $(var.ProductVersion)"
+            Description="Launch DriverMap $(var.ProductVersion)"
+            Target="[APPLICATIONROOTDIRECTORY]DriverMap.exe"
+            WorkingDirectory="APPLICATIONROOTDIRECTORY" Icon="DriverMap.exe" />
+        <RemoveFolder Id="ProgramMenuFolder" On="uninstall"/>
+        <RegistryValue
+            Root="HKCU"
+            Key="Software/Frangou Lab/DriverMap"
+            Name="installed"
+            Type="integer"
+            Value="1"
+            KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+
+    <Feature Id="VCRedist" AllowAdvertise="no" Display="hidden" Level="1" Title="Visual C++ Runtime">
+      <MergeRef Id="VCRedist"/>
+    </Feature>
+    
+    <Feature Id="DriverMapApplication" Title="DriverMap $(var.Platform) v$(var.ProductVersion)" Absent='disallow' Description="Install DriverMap Utilites v$(var.ProductVersion)" Level="1" Display="expand">
+      <ComponentGroupRef Id="ProductComponents" />
+      <ComponentRef Id="ApplicationShortcutDesktop" />
+      <ComponentRef Id="ApplicationProgramsMenuShortcut" />
+    </Feature>
+
+    <CustomAction Id="LaunchFile" Directory="APPLICATIONROOTDIRECTORY" ExeCommand="[APPLICATIONROOTDIRECTORY]DriverMap.exe" Return="asyncWait" />
+
+    <util:CloseApplication
+      Id="CloseApp"
+      CloseMessage="yes"
+      Target="DriverMap.exe"
+      RebootPrompt="no" />
+    
+    <Property Id="MSIRESTARTMANAGERCONTROL" Value="Disable" />
+
+    <InstallExecuteSequence>
+      <Custom Before="RemoveFiles" Action="WixCloseApplications" />
+    </InstallExecuteSequence>
+
+    <UIRef Id="Interface"/>
+  </Product>
+</Wix>

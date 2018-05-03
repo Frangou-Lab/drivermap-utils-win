@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <DirectoryRef Id="APPLICATIONROOTDIRECTORY">
+            <Directory Id="dir1C628EE15A29CD6ED08798D6B0A06B2F" Name="de" />
+            <Directory Id="dir2BE5C56610ED1E2D8B9503E8D021E621" Name="en" />
+            <Directory Id="dir6B7DF5E7779A02DE589C2D4AABF889BA" Name="es" />
+            <Directory Id="dirCCE997692B032DBDA6174416BFED255E" Name="fr" />
+            <Directory Id="dirC0620602576770B728F6D7CF835E4230" Name="it" />
+            <Directory Id="dirE1E3C9D64650485E7BD0EC859CECAC39" Name="ja" />
+            <Directory Id="dir5F675FF0062E1C1CACE0170EC20A5208" Name="ko" />
+            <Directory Id="dirF9A13AB290C9570B2C0CE7CB6EF9D86E" Name="ru" />
+            <Directory Id="dir64536EB28B048E57C7A61D43ADE1F57A" Name="zh-Hans" />
+            <Directory Id="dir1CE87C0CB1BB6DC5BACF68BF745C95A4" Name="zh-Hant" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="ProductComponents">
+            <Component Id="cmp336A3518D8CABCF31423D3C1ACA8CE90" Directory="APPLICATIONROOTDIRECTORY" Guid="*">
+                <File Id="fil148E441F03BFA7661BEF632D4B843DB2" KeyPath="yes" Source="$(var.BinPath)\Autofac.dll" />
+            </Component>
+            
+            <Component Id="cmpE65C0E9FED6E17DAFCC1025E83CFE776" Directory="APPLICATIONROOTDIRECTORY" Guid="*">
+                <File Id="fil16EC11F8727AC911E81A39019B316A4A" KeyPath="yes" Source="$(var.BinPath)\Frangou-Lab.Geneutils.Search.dll" />
+            </Component>
+            
+            <Component Id="cmpAB21870BCFC5C8F24FA7B5BAAA663BA9" Directory="APPLICATIONROOTDIRECTORY" Guid="*">
+                <File Id="fil9DD005FA6A4F4B43E4F18AE8BCC48F07" KeyPath="yes" Source="$(var.BinPath)\DriverMap.exe" />
+            </Component>
+            <Component Id="cmp625161B9C6CBE6415995B4A775557CE6" Directory="APPLICATIONROOTDIRECTORY" Guid="*">
+                <File Id="fil3EB9C38B0F7C41190C4EAEF95773B79E" KeyPath="yes" Source="$(var.BinPath)\DriverMap.exe.config" />
+            </Component>
+            
+            
+            
+            
+            <Component Id="cmpE68E7C3F4588086C0B0568320F4FC33F" Directory="APPLICATIONROOTDIRECTORY" Guid="*">
+                <File Id="fil5A99EB19EA8F429B3CCC4CE6088D9914" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Expression.Interactions.dll" />
+            </Component>
+            <Component Id="cmp9529459ABB6C6C09A8C5922008294FA3" Directory="APPLICATIONROOTDIRECTORY" Guid="*">
+                <Class Id="{3CA2611C-F83B-3F7C-B26C-DEA377803521}" Context="InprocServer32" Description="Microsoft.Practices.ServiceLocation.ActivationException" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="Microsoft.Practices.ServiceLocation.ActivationException" Description="Microsoft.Practices.ServiceLocation.ActivationException" />
+                </Class>
+                <File Id="filB24B82C88A43EEF68A3F6F4503E1D5C9" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Practices.ServiceLocation.dll" />
+                <RegistryValue Root="HKCR" Key="CLSID\{3CA2611C-F83B-3F7C-B26C-DEA377803521}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{3CA2611C-F83B-3F7C-B26C-DEA377803521}\InprocServer32\1.3.0.0" Name="Class" Value="Microsoft.Practices.ServiceLocation.ActivationException" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{3CA2611C-F83B-3F7C-B26C-DEA377803521}\InprocServer32\1.3.0.0" Name="Assembly" Value="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{3CA2611C-F83B-3F7C-B26C-DEA377803521}\InprocServer32\1.3.0.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{3CA2611C-F83B-3F7C-B26C-DEA377803521}\InprocServer32\1.3.0.0" Name="CodeBase" Value="file:///[#filB24B82C88A43EEF68A3F6F4503E1D5C9]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{3CA2611C-F83B-3F7C-B26C-DEA377803521}\InprocServer32" Name="Class" Value="Microsoft.Practices.ServiceLocation.ActivationException" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{3CA2611C-F83B-3F7C-B26C-DEA377803521}\InprocServer32" Name="Assembly" Value="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{3CA2611C-F83B-3F7C-B26C-DEA377803521}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{3CA2611C-F83B-3F7C-B26C-DEA377803521}\InprocServer32" Name="CodeBase" Value="file:///[#filB24B82C88A43EEF68A3F6F4503E1D5C9]" Type="string" Action="write" />
+            </Component>
+            
+            
+            <Component Id="cmp7F29215658E0DEE9DB2D0B6B63ADF454" Directory="APPLICATIONROOTDIRECTORY" Guid="*">
+                <File Id="fil8E5BC078F3CA87E321210CE3DF3D6196" KeyPath="yes" Source="$(var.BinPath)\Microsoft.WindowsAPICodePack.dll" />
+            </Component>
+            
+            <Component Id="cmp9C635E376FE60485A5B6EC736537EC08" Directory="APPLICATIONROOTDIRECTORY" Guid="*">
+                <Class Id="{1D3AA1DA-9765-315D-BC2D-6B6914709F04}" Context="InprocServer32" Description="MS.WindowsAPICodePack.Internal.ExplorerBrowserViewEvents" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="MS.WindowsAPICodePack.Internal.ExplorerBrowserViewEvents" Description="MS.WindowsAPICodePack.Internal.ExplorerBrowserViewEvents" />
+                </Class>
+                <File Id="filB0740C3346EF4B29779918E1F1FAB717" KeyPath="yes" Source="$(var.BinPath)\Microsoft.WindowsAPICodePack.Shell.dll" />
+                <RegistryValue Root="HKCR" Key="CLSID\{1D3AA1DA-9765-315D-BC2D-6B6914709F04}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{1D3AA1DA-9765-315D-BC2D-6B6914709F04}\InprocServer32\1.1.0.0" Name="Class" Value="MS.WindowsAPICodePack.Internal.ExplorerBrowserViewEvents" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{1D3AA1DA-9765-315D-BC2D-6B6914709F04}\InprocServer32\1.1.0.0" Name="Assembly" Value="Microsoft.WindowsAPICodePack.Shell, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{1D3AA1DA-9765-315D-BC2D-6B6914709F04}\InprocServer32\1.1.0.0" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{1D3AA1DA-9765-315D-BC2D-6B6914709F04}\InprocServer32\1.1.0.0" Name="CodeBase" Value="file:///[#filB0740C3346EF4B29779918E1F1FAB717]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{1D3AA1DA-9765-315D-BC2D-6B6914709F04}\InprocServer32" Name="Class" Value="MS.WindowsAPICodePack.Internal.ExplorerBrowserViewEvents" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{1D3AA1DA-9765-315D-BC2D-6B6914709F04}\InprocServer32" Name="Assembly" Value="Microsoft.WindowsAPICodePack.Shell, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{1D3AA1DA-9765-315D-BC2D-6B6914709F04}\InprocServer32" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{1D3AA1DA-9765-315D-BC2D-6B6914709F04}\InprocServer32" Name="CodeBase" Value="file:///[#filB0740C3346EF4B29779918E1F1FAB717]" Type="string" Action="write" />
+            </Component>
+            
+            
+            <Component Id="cmp6E7B613DE2968AEF473FB10EEF56F1AA" Directory="APPLICATIONROOTDIRECTORY" Guid="*">
+                <File Id="fil74BBF5EF42AFF3F4DBFD66A4C9CD5E15" KeyPath="yes" Source="$(var.BinPath)\Microsoft.WindowsAPICodePack.ShellExtensions.dll" />
+            </Component>
+            
+            
+            
+            <Component Id="cmp3745532662314884595382894D1DE969" Directory="APPLICATIONROOTDIRECTORY" Guid="*">
+                <File Id="filCCCCB6E1EFE4DDB7C34C21C157E7F9B3" KeyPath="yes" Source="$(var.BinPath)\Prism.Autofac.Wpf.dll" />
+            </Component>
+            
+            <Component Id="cmpF12B247477F78BBF7DF3FA63F78B106A" Directory="APPLICATIONROOTDIRECTORY" Guid="*">
+                <Class Id="{4BD555FF-3BF4-39C0-9857-BF598D713389}" Context="InprocServer32" Description="Prism.Logging.DebugLogger" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="Prism.Logging.DebugLogger" Description="Prism.Logging.DebugLogger" />
+                </Class>
+                <Class Id="{64F9561C-D7E3-3F5C-992B-A3623F5BE899}" Context="InprocServer32" Description="Prism.Logging.EmptyLogger" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="Prism.Logging.EmptyLogger" Description="Prism.Logging.EmptyLogger" />
+                </Class>
+                <Class Id="{901DEC57-B223-31A2-9BA0-63784C7D106D}" Context="InprocServer32" Description="Prism.Commands.CompositeCommand" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="Prism.Commands.CompositeCommand" Description="Prism.Commands.CompositeCommand" />
+                </Class>
+                <Class Id="{91AD2D3E-030A-37DA-BDB2-07619EBFEF98}" Context="InprocServer32" Description="Prism.Events.PubSubEvent" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="Prism.Events.PubSubEvent" Description="Prism.Events.PubSubEvent" />
+                </Class>
+                <Class Id="{E646B87A-D961-309D-8E5D-5DE0267ECDB6}" Context="InprocServer32" Description="Prism.Events.EventAggregator" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="Prism.Events.EventAggregator" Description="Prism.Events.EventAggregator" />
+                </Class>
+                <File Id="filDA64006CE60C78E34951E1C415405A42" KeyPath="yes" Source="$(var.BinPath)\Prism.dll" />
+                <ProgId Id="Record" />
+                <RegistryValue Root="HKCR" Key="CLSID\{4BD555FF-3BF4-39C0-9857-BF598D713389}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{4BD555FF-3BF4-39C0-9857-BF598D713389}\InprocServer32\6.2.0.0" Name="Class" Value="Prism.Logging.DebugLogger" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{4BD555FF-3BF4-39C0-9857-BF598D713389}\InprocServer32\6.2.0.0" Name="Assembly" Value="Prism, Version=6.2.0.0, Culture=neutral, PublicKeyToken=91a96d2a154366d8" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{4BD555FF-3BF4-39C0-9857-BF598D713389}\InprocServer32\6.2.0.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{4BD555FF-3BF4-39C0-9857-BF598D713389}\InprocServer32\6.2.0.0" Name="CodeBase" Value="file:///[#filDA64006CE60C78E34951E1C415405A42]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{4BD555FF-3BF4-39C0-9857-BF598D713389}\InprocServer32" Name="Class" Value="Prism.Logging.DebugLogger" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{4BD555FF-3BF4-39C0-9857-BF598D713389}\InprocServer32" Name="Assembly" Value="Prism, Version=6.2.0.0, Culture=neutral, PublicKeyToken=91a96d2a154366d8" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{4BD555FF-3BF4-39C0-9857-BF598D713389}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{4BD555FF-3BF4-39C0-9857-BF598D713389}\InprocServer32" Name="CodeBase" Value="file:///[#filDA64006CE60C78E34951E1C415405A42]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{64F9561C-D7E3-3F5C-992B-A3623F5BE899}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{64F9561C-D7E3-3F5C-992B-A3623F5BE899}\InprocServer32\6.2.0.0" Name="Class" Value="Prism.Logging.EmptyLogger" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{64F9561C-D7E3-3F5C-992B-A3623F5BE899}\InprocServer32\6.2.0.0" Name="Assembly" Value="Prism, Version=6.2.0.0, Culture=neutral, PublicKeyToken=91a96d2a154366d8" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{64F9561C-D7E3-3F5C-992B-A3623F5BE899}\InprocServer32\6.2.0.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{64F9561C-D7E3-3F5C-992B-A3623F5BE899}\InprocServer32\6.2.0.0" Name="CodeBase" Value="file:///[#filDA64006CE60C78E34951E1C415405A42]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{64F9561C-D7E3-3F5C-992B-A3623F5BE899}\InprocServer32" Name="Class" Value="Prism.Logging.EmptyLogger" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{64F9561C-D7E3-3F5C-992B-A3623F5BE899}\InprocServer32" Name="Assembly" Value="Prism, Version=6.2.0.0, Culture=neutral, PublicKeyToken=91a96d2a154366d8" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{64F9561C-D7E3-3F5C-992B-A3623F5BE899}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{64F9561C-D7E3-3F5C-992B-A3623F5BE899}\InprocServer32" Name="CodeBase" Value="file:///[#filDA64006CE60C78E34951E1C415405A42]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{901DEC57-B223-31A2-9BA0-63784C7D106D}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{901DEC57-B223-31A2-9BA0-63784C7D106D}\InprocServer32\6.2.0.0" Name="Class" Value="Prism.Commands.CompositeCommand" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{901DEC57-B223-31A2-9BA0-63784C7D106D}\InprocServer32\6.2.0.0" Name="Assembly" Value="Prism, Version=6.2.0.0, Culture=neutral, PublicKeyToken=91a96d2a154366d8" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{901DEC57-B223-31A2-9BA0-63784C7D106D}\InprocServer32\6.2.0.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{901DEC57-B223-31A2-9BA0-63784C7D106D}\InprocServer32\6.2.0.0" Name="CodeBase" Value="file:///[#filDA64006CE60C78E34951E1C415405A42]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{901DEC57-B223-31A2-9BA0-63784C7D106D}\InprocServer32" Name="Class" Value="Prism.Commands.CompositeCommand" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{901DEC57-B223-31A2-9BA0-63784C7D106D}\InprocServer32" Name="Assembly" Value="Prism, Version=6.2.0.0, Culture=neutral, PublicKeyToken=91a96d2a154366d8" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{901DEC57-B223-31A2-9BA0-63784C7D106D}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{901DEC57-B223-31A2-9BA0-63784C7D106D}\InprocServer32" Name="CodeBase" Value="file:///[#filDA64006CE60C78E34951E1C415405A42]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{91AD2D3E-030A-37DA-BDB2-07619EBFEF98}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{91AD2D3E-030A-37DA-BDB2-07619EBFEF98}\InprocServer32\6.2.0.0" Name="Class" Value="Prism.Events.PubSubEvent" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{91AD2D3E-030A-37DA-BDB2-07619EBFEF98}\InprocServer32\6.2.0.0" Name="Assembly" Value="Prism, Version=6.2.0.0, Culture=neutral, PublicKeyToken=91a96d2a154366d8" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{91AD2D3E-030A-37DA-BDB2-07619EBFEF98}\InprocServer32\6.2.0.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{91AD2D3E-030A-37DA-BDB2-07619EBFEF98}\InprocServer32\6.2.0.0" Name="CodeBase" Value="file:///[#filDA64006CE60C78E34951E1C415405A42]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{91AD2D3E-030A-37DA-BDB2-07619EBFEF98}\InprocServer32" Name="Class" Value="Prism.Events.PubSubEvent" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{91AD2D3E-030A-37DA-BDB2-07619EBFEF98}\InprocServer32" Name="Assembly" Value="Prism, Version=6.2.0.0, Culture=neutral, PublicKeyToken=91a96d2a154366d8" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{91AD2D3E-030A-37DA-BDB2-07619EBFEF98}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{91AD2D3E-030A-37DA-BDB2-07619EBFEF98}\InprocServer32" Name="CodeBase" Value="file:///[#filDA64006CE60C78E34951E1C415405A42]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{E646B87A-D961-309D-8E5D-5DE0267ECDB6}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{E646B87A-D961-309D-8E5D-5DE0267ECDB6}\InprocServer32\6.2.0.0" Name="Class" Value="Prism.Events.EventAggregator" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{E646B87A-D961-309D-8E5D-5DE0267ECDB6}\InprocServer32\6.2.0.0" Name="Assembly" Value="Prism, Version=6.2.0.0, Culture=neutral, PublicKeyToken=91a96d2a154366d8" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{E646B87A-D961-309D-8E5D-5DE0267ECDB6}\InprocServer32\6.2.0.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{E646B87A-D961-309D-8E5D-5DE0267ECDB6}\InprocServer32\6.2.0.0" Name="CodeBase" Value="file:///[#filDA64006CE60C78E34951E1C415405A42]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{E646B87A-D961-309D-8E5D-5DE0267ECDB6}\InprocServer32" Name="Class" Value="Prism.Events.EventAggregator" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{E646B87A-D961-309D-8E5D-5DE0267ECDB6}\InprocServer32" Name="Assembly" Value="Prism, Version=6.2.0.0, Culture=neutral, PublicKeyToken=91a96d2a154366d8" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{E646B87A-D961-309D-8E5D-5DE0267ECDB6}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{E646B87A-D961-309D-8E5D-5DE0267ECDB6}\InprocServer32" Name="CodeBase" Value="file:///[#filDA64006CE60C78E34951E1C415405A42]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{01D3D970-2E5E-3D73-85AF-71DD5A48D5A3}\6.2.0.0" Name="Class" Value="Prism.Logging.Priority" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{01D3D970-2E5E-3D73-85AF-71DD5A48D5A3}\6.2.0.0" Name="Assembly" Value="Prism, Version=6.2.0.0, Culture=neutral, PublicKeyToken=91a96d2a154366d8" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{01D3D970-2E5E-3D73-85AF-71DD5A48D5A3}\6.2.0.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{01D3D970-2E5E-3D73-85AF-71DD5A48D5A3}\6.2.0.0" Name="CodeBase" Value="file:///[#filDA64006CE60C78E34951E1C415405A42]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{1D93994A-83D7-30A9-9AAC-73367D193E83}\6.2.0.0" Name="Class" Value="Prism.Logging.Category" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{1D93994A-83D7-30A9-9AAC-73367D193E83}\6.2.0.0" Name="Assembly" Value="Prism, Version=6.2.0.0, Culture=neutral, PublicKeyToken=91a96d2a154366d8" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{1D93994A-83D7-30A9-9AAC-73367D193E83}\6.2.0.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{1D93994A-83D7-30A9-9AAC-73367D193E83}\6.2.0.0" Name="CodeBase" Value="file:///[#filDA64006CE60C78E34951E1C415405A42]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{F4BD41CD-6B24-3FCB-AF12-76ECC0E7CA87}\6.2.0.0" Name="Class" Value="Prism.Events.ThreadOption" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{F4BD41CD-6B24-3FCB-AF12-76ECC0E7CA87}\6.2.0.0" Name="Assembly" Value="Prism, Version=6.2.0.0, Culture=neutral, PublicKeyToken=91a96d2a154366d8" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{F4BD41CD-6B24-3FCB-AF12-76ECC0E7CA87}\6.2.0.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{F4BD41CD-6B24-3FCB-AF12-76ECC0E7CA87}\6.2.0.0" Name="CodeBase" Value="file:///[#filDA64006CE60C78E34951E1C415405A42]" Type="string" Action="write" />
+            </Component>
+            <Component Id="cmp8B2072F0417BC95093E29B53EAF7DD2E" Directory="APPLICATIONROOTDIRECTORY" Guid="*">
+                <File Id="fil5362666C867A8917C178D995BFD0D7A6" KeyPath="yes" Source="$(var.BinPath)\Prism.Wpf.dll" />
+            </Component>
+            
+            
+            <Component Id="cmp6AD4539F201CB7D043F853C4EE3D3C8A" Directory="APPLICATIONROOTDIRECTORY" Guid="*">
+                <File Id="fil66F341522234FEAE77228836DE5E51A8" KeyPath="yes" Source="$(var.BinPath)\System.Windows.Interactivity.dll" />
+            </Component>
+            <Component Id="cmpDFFD1970D0C7CCBCBFB17D6B8E83129C" Directory="APPLICATIONROOTDIRECTORY" Guid="*">
+                <File Id="fil272DFDB5A874C8CA12CBA2B9E6502BF2" KeyPath="yes" Source="$(var.BinPath)\WPFConverters.dll" />
+            </Component>
+            
+            <Component Id="cmp94515B44CB1032883B4CE00BED9FD288" Directory="APPLICATIONROOTDIRECTORY" Guid="*">
+                <File Id="fil4DD7980666C0FC1FF252AAD4A31E8EDE" KeyPath="yes" Source="$(var.BinPath)\zlib1.dll" />
+            </Component>
+            <Component Id="cmpE197F2D753360FC81691432C479EC983" Directory="APPLICATIONROOTDIRECTORY" Guid="*">
+                <File Id="filADE1C3D58D76FD9BCA659EBB237BD6D9" KeyPath="yes" Source="$(var.BinPath)\zlibwapi.dll" />
+            </Component>
+            <Component Id="cmp2B0424622F07BBAC93ADB61CEFB2A78A" Directory="dir1C628EE15A29CD6ED08798D6B0A06B2F" Guid="*">
+                <File Id="filE4E661907B7CF1AA4AA6E5E0B678B140" KeyPath="yes" Source="$(var.BinPath)\de\Microsoft.Expression.Interactions.resources.dll" />
+            </Component>
+            <Component Id="cmpF4C889D7294DDB2ADB73F527B844837A" Directory="dir2BE5C56610ED1E2D8B9503E8D021E621" Guid="*">
+                <File Id="fil4B251EBE68975ACFB7F314DBBE4DF4DE" KeyPath="yes" Source="$(var.BinPath)\en\Microsoft.Expression.Interactions.resources.dll" />
+            </Component>
+            <Component Id="cmpDDCF6AF150D4D488FCEA478DAAC1D0A8" Directory="dir6B7DF5E7779A02DE589C2D4AABF889BA" Guid="*">
+                <File Id="filCD34704DE83EAE30E8079BE71522D2B0" KeyPath="yes" Source="$(var.BinPath)\es\Microsoft.Expression.Interactions.resources.dll" />
+            </Component>
+            <Component Id="cmp95EF953C8ABFBE644C209B7F83C40B5D" Directory="dirCCE997692B032DBDA6174416BFED255E" Guid="*">
+                <File Id="filA8A52FE99E89E7B62DE1BEF3EB455A79" KeyPath="yes" Source="$(var.BinPath)\fr\Microsoft.Expression.Interactions.resources.dll" />
+            </Component>
+            <Component Id="cmp94CA8412B956B1AC27024CA5B5E67B7F" Directory="dirC0620602576770B728F6D7CF835E4230" Guid="*">
+                <File Id="filE7A00E82D5DE2C6C1117F84C65F04D6D" KeyPath="yes" Source="$(var.BinPath)\it\Microsoft.Expression.Interactions.resources.dll" />
+            </Component>
+            <Component Id="cmpE90506A0DD6C3E4F6ADD0063D9B7615F" Directory="dirE1E3C9D64650485E7BD0EC859CECAC39" Guid="*">
+                <File Id="filAFEBADB957065EC75E39EE455195234E" KeyPath="yes" Source="$(var.BinPath)\ja\Microsoft.Expression.Interactions.resources.dll" />
+            </Component>
+            <Component Id="cmpC6207744B5CF4A1C75475FE536A3CB18" Directory="dir5F675FF0062E1C1CACE0170EC20A5208" Guid="*">
+                <File Id="filC4199F56339BD4B30A558C1F0C9DCFBC" KeyPath="yes" Source="$(var.BinPath)\ko\Microsoft.Expression.Interactions.resources.dll" />
+            </Component>
+            <Component Id="cmp269CEDF667B9C68721F6F13E78E619DE" Directory="dirF9A13AB290C9570B2C0CE7CB6EF9D86E" Guid="*">
+                <File Id="filB7F6A86E790701D696A73597955791DE" KeyPath="yes" Source="$(var.BinPath)\ru\Microsoft.Expression.Interactions.resources.dll" />
+            </Component>
+            <Component Id="cmpB90B7968B19DF27287D32C94CD31AF66" Directory="dir64536EB28B048E57C7A61D43ADE1F57A" Guid="*">
+                <File Id="filD92474548F0DECBECEE289AD6D9094AE" KeyPath="yes" Source="$(var.BinPath)\zh-Hans\Microsoft.Expression.Interactions.resources.dll" />
+            </Component>
+            <Component Id="cmp326DDF539E835C26DBB8C7AEF6FC1DF9" Directory="dir1CE87C0CB1BB6DC5BACF68BF745C95A4" Guid="*">
+                <File Id="filC20F9725A850E788E41078842487DF24" KeyPath="yes" Source="$(var.BinPath)\zh-Hant\Microsoft.Expression.Interactions.resources.dll" />
+            </Component>
+        </ComponentGroup>
+    </Fragment>
+</Wix>

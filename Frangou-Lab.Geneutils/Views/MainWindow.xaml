@@ -1,0 +1,110 @@
+﻿<Window x:Class="FrangouLab.Geneutils.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:con="http://schemas.macfar.land/wpfconverters"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mvvm="http://prismlibrary.com/"
+        xmlns:resources="clr-namespace:FrangouLab.Geneutils.Resources"
+        xmlns:views="clr-namespace:FrangouLab.Geneutils.Views"
+        mvvm:ViewModelLocator.AutoWireViewModel="True"
+        Style="{DynamicResource ShadowWindow}"
+        mc:Ignorable="d">
+    <Window.Title>
+        <MultiBinding StringFormat="{}{0} {1}">
+            <Binding Source="{x:Static resources:Language.Title}" />
+            <Binding Source="{x:Static resources:Version.Current}" />
+        </MultiBinding>
+    </Window.Title>
+    <Window.Resources>
+        <ResourceDictionary Source="../Resources/Style.xaml" />
+    </Window.Resources>
+    <Grid IsEnabled="True" SnapsToDevicePixels="True">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="100" />
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <views:SearchView Grid.Row="0" DataContext="{Binding SearchViewModel}" />
+
+            <Grid Grid.Row="1" Margin="10, 0, 10, 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="20" />
+                </Grid.RowDefinitions>
+
+                <DockPanel Grid.Row="0"
+                           Grid.Column="0"
+                           HorizontalAlignment="Left">
+                    <Button Command="{Binding AddToQueueCommand}" Style="{StaticResource AddButton}" />
+                    <TextBlock Margin="7, 0"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Text="{Binding QueueCount,
+                                              UpdateSourceTrigger=PropertyChanged}" />
+                    <Button Margin="0"
+                            Command="{Binding RemoveFromQueueCommand}"
+                            Style="{StaticResource RemoveButton}" />
+                </DockPanel>
+                <DockPanel Grid.Row="0"
+                           Grid.Column="1"
+                           HorizontalAlignment="Right">
+                    <Label Style="{StaticResource Label}">
+                        Output:
+                    </Label>
+
+                    <TextBlock Padding="0, 3, 5, 3">
+                        <Hyperlink Command="{Binding OpenOutputFileCommand}" ToolTip="{Binding OutputFile.Path}">
+                            <TextBlock Text="{Binding Path=OutputFile.Name}" />
+                        </Hyperlink>
+                    </TextBlock>
+
+                    <Button Width="90"
+                            Margin="5, 0, 0, 0"
+                            Background="WhiteSmoke"
+                            BorderBrush="{StaticResource BorderBrush}"
+                            Command="{Binding DataContext.SearchCommand,
+                                              RelativeSource={RelativeSource FindAncestor,
+                                                                             AncestorType={x:Type views:MainWindow}}}"
+                            Padding="10, 0">
+                        <StackPanel Orientation="Horizontal">
+                            <Path Width="12"
+                                  Height="12"
+                                  Style="{StaticResource FindButtonPath}" />
+                            <Label Margin="5, 0" Padding="0">Find</Label>
+                        </StackPanel>
+                    </Button>
+                </DockPanel>
+
+                <ProgressBar Grid.Row="1"
+                             Grid.Column="0"
+                             Grid.ColumnSpan="2"
+                             Height="5"
+                             Margin="0, 3, 0, 3"
+                             Maximum="100"
+                             Minimum="0"
+                             Visibility="{Binding IsSearching,
+                                                  Converter={con:BoolToVisibilityConverter}}"
+                             Value="{Binding Progress,
+                                             UpdateSourceTrigger=PropertyChanged}" />
+            </Grid>
+        </Grid>
+
+        <GridSplitter Grid.Row="1"
+                      Height="5"
+                      HorizontalAlignment="Stretch" />
+
+        <views:LoggerView Grid.Row="2" DataContext="{Binding LoggerViewModel}" />
+    </Grid>
+</Window>

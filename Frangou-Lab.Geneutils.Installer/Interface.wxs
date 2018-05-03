@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Fragment>
+    <UI Id="Interface">
+
+      <Property Id="DefaultUIFont">DlgFont8</Property>
+      
+      <!-- Install Dialog -->
+      
+      <Dialog Id="InstallDlg" Width="370" Height="270" Title="[ProductName] [Setup]" NoMinimize="yes">
+        <Control Id="Install" Type="PushButton" X="236" Y="243" Width="56" Height="17" Default="yes" Text="[ButtonText_Install]">
+          <Publish Event="NewDialog" Value="ProgressDialog" />
+        </Control>
+        <Control Id="Cancel" Type="PushButton" X="304" Y="243" Width="56" Height="17" Cancel="yes" Text="[ButtonText_Cancel]">
+          <Publish Event="SpawnDialog" Value="CancelDialog">1</Publish>
+        </Control>
+        <Control Id="BannerBitmap" Type="Bitmap" X="0" Y="0" Width="370" Height="44" TabSkip="no" Text="[BannerBitmap]" />
+        <Control Id="Description" Type="Text" X="25" Y="23" Width="280" Height="15" Transparent="yes" NoPrefix="yes">
+          <Text>The [Wizard] is ready to begin the installation</Text>
+        </Control>
+        <Control Id="Text" Type="Text" X="25" Y="70" Width="320" Height="20">
+          <Text>Click Install to begin the installation.</Text>
+        </Control>
+        <Control Id="BottomLine" Type="Line" X="0" Y="234" Width="370" Height="0" />
+        <Control Id="Title" Type="Text" X="15" Y="6" Width="200" Height="15" Transparent="yes" NoPrefix="yes">
+          <Text>{\DlgTitleFont}Ready to Install</Text>
+        </Control>
+        <Control Id="BannerLine" Type="Line" X="0" Y="44" Width="370" Height="0" />
+      </Dialog>
+
+      <!-- // Install Dialog -->
+
+      <!-- Progress Dialog -->
+      
+      <Dialog Id="ProgressDialog" Width="370" Height="270" Title="[ProductName] [Setup]" Modeless="yes">
+        <Control Id="Cancel" Type="PushButton" X="304" Y="243" Width="56" Height="17" Default="yes" Cancel="yes" Text="[ButtonText_Cancel]">
+          <Publish Event="SpawnDialog" Value="CancelDialog">1</Publish>
+        </Control>
+        <Control Id="BannerBitmap" Type="Bitmap" X="0" Y="0" Width="370" Height="44" TabSkip="no" Text="[BannerBitmap]" />
+        <Control Id="Back" Type="PushButton" X="180" Y="243" Width="56" Height="17" Disabled="yes" Text="[ButtonText_Back]" />
+        <Control Id="Next" Type="PushButton" X="236" Y="243" Width="56" Height="17" Disabled="yes" Text="[ButtonText_Next]" />
+        <Control Id="ActionText" Type="Text" X="70" Y="100" Width="265" Height="10">
+          <Subscribe Event="ActionText" Attribute="Text" />
+        </Control>
+        <Control Id="Text" Type="Text" X="35" Y="65" Width="300" Height="20">
+          <Text>Please wait while the [Wizard] installs [ProductName]. This may take several minutes.</Text>
+        </Control>
+        <Control Id="BottomLine" Type="Line" X="0" Y="234" Width="370" Height="0" />
+        <Control Id="Title" Type="Text" X="20" Y="15" Width="200" Height="15" Transparent="yes" NoPrefix="yes">
+          <Text>{\DlgTitleFont}Installing [ProductName]</Text>
+        </Control>
+        <Control Id="BannerLine" Type="Line" X="0" Y="44" Width="370" Height="0" />
+        <Control Id="ProgressBar" Type="ProgressBar" X="35" Y="115" Width="300" Height="10" ProgressBlocks="yes" Text="Progress done">
+          <Subscribe Event="SetProgress" Attribute="Progress" />
+        </Control>
+        <Control Id="StatusLabel" Type="Text" X="35" Y="100" Width="35" Height="10" Text="Status:" />
+      </Dialog>
+
+      <!-- // Progress Dialog -->
+
+      <!-- Finish Dialog -->
+      
+      <Dialog Id="FinishDialog" Width="370" Height="270" Title="[ProductName] [Setup]" NoMinimize="yes">
+        <Control Id="Finish" Type="PushButton" X="236" Y="243" Width="56" Height="17" Default="yes" Cancel="yes" Text="[ButtonText_Finish]">
+          <Publish Event="EndDialog" Value="Return">1</Publish>
+          <Publish Event='DoAction' Value='LaunchFile'>LAUNCHPRODUCT = 1</Publish>
+        </Control>
+        <Control Id="Cancel" Type="PushButton" X="304" Y="243" Width="56" Height="17" Disabled="yes" Text="[ButtonText_Cancel]" />
+        <Control Id="Bitmap" Type="Bitmap" X="0" Y="0" Width="370" Height="234" TabSkip="no" Text="[DialogBitmap]" />
+        <Control Id="Back" Type="PushButton" X="180" Y="243" Width="56" Height="17" Disabled="yes" Text="[ButtonText_Back]" />
+        <Control Id="Description" Type="Text" X="135" Y="70" Width="220" Height="20" Transparent="yes" NoPrefix="yes">
+          <Text>Click the Finish button to exit the [Wizard].</Text>
+        </Control>
+
+        <Control Id="Launch" Type="CheckBox" X="135" Y="120" Width="10" Height="10" Property='LAUNCHPRODUCT' CheckBoxValue='1' />
+        
+        <Control Id="CheckBoxText" Type="Text" X="150" Y="120" Width="135" Height="20" Transparent="yes" NoPrefix="yes">
+          <Text>Launch [ProductName]</Text>
+        </Control>
+        
+        <Control Id="BottomLine" Type="Line" X="0" Y="234" Width="370" Height="0" />
+        <Control Id="Title" Type="Text" X="135" Y="20" Width="220" Height="60" Transparent="yes" NoPrefix="yes">
+          <Text>{\VerdanaBold13}Completing the [ProductName] [Wizard]</Text>
+        </Control>
+      </Dialog>
+
+      <!-- // Finish Dialog -->
+      
+      <Dialog Id="CancelDialog" Width="260" Height="85" Title="[ProductName] [Setup]" NoMinimize="yes">
+        <Control Id="No" Type="PushButton" X="132" Y="57" Width="56" Height="17" Default="yes" Cancel="yes" Text="[ButtonText_No]">
+          <Publish Event="EndDialog" Value="Return">1</Publish>
+        </Control>
+        <Control Id="Yes" Type="PushButton" X="72" Y="57" Width="56" Height="17" Text="[ButtonText_Yes]">
+          <Publish Event="EndDialog" Value="Exit">1</Publish>
+        </Control>
+        <Control Id="Text" Type="Text" X="48" Y="15" Width="194" Height="30">
+          <Text>Are you sure you want to cancel [ProductName] installation?</Text>
+        </Control>
+      </Dialog>
+      
+      <TextStyle Id="DlgFont8" FaceName="Tahoma" Size="8" />
+      <TextStyle Id="DlgTitleFont" FaceName="Tahoma" Size="8" Bold="yes" />
+      <TextStyle Id="VerdanaBold13" FaceName="Verdana" Size="13" Bold="yes" />
+
+      <InstallUISequence>
+        <Show Dialog="InstallDlg" After="CostFinalize" />
+        <Show Dialog="FinishDialog" OnExit="success" />
+      </InstallUISequence>
+    </UI>
+
+    <Property Id="Setup">Setup</Property>
+    <Property Id="ButtonText_Back">&lt; &amp;Back</Property>
+    <Property Id="ButtonText_Browse">Br&amp;owse</Property>
+    <Property Id="ButtonText_Cancel">Cancel</Property>
+    <Property Id="ButtonText_Exit">&amp;Exit</Property>
+    <Property Id="ButtonText_Finish">&amp;Finish</Property>
+    <Property Id="ButtonText_Ignore">&amp;Ignore</Property>
+    <Property Id="ButtonText_Install">&amp;Install</Property>
+    <Property Id="ButtonText_Next">&amp;Next &gt;</Property>
+    <Property Id="ButtonText_No">&amp;No</Property>
+    <Property Id="ButtonText_OK">OK</Property>
+    <Property Id="ButtonText_Remove">&amp;Remove</Property>
+    <Property Id="ButtonText_Repair">&amp;Repair</Property>
+    <Property Id="ButtonText_Reset">&amp;Reset</Property>
+    <Property Id="ButtonText_Resume">&amp;Resume</Property>
+    <Property Id="ButtonText_Retry">&amp;Retry</Property>
+    <Property Id="ButtonText_Return">&amp;Return</Property>
+    <Property Id="ButtonText_Yes">&amp;Yes</Property>
+    <Property Id="BannerBitmap">bannrbmp</Property>
+    <Property Id="Wizard">Setup Wizard</Property>
+    <Property Id="InfoIcon">info</Property>
+    <Property Id="DialogBitmap">dlgbmp</Property>
+    <Property Id="LAUNCHPRODUCT">1</Property>
+
+    <Binary Id="bannrbmp" SourceFile="Images\Horizontal.png" />
+    <Binary Id="dlgbmp" SourceFile="Images\Vertical.png" />
+  </Fragment>
+</Wix>
